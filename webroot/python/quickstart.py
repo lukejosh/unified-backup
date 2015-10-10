@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
+print "Content-type: text/html\n\n"
+
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
-print "Content-type: text/html\n"
+
 gauth = GoogleAuth()
 
 gauth.LoadCredentialsFile("mycreds.txt")
@@ -23,3 +25,5 @@ drive = GoogleDrive(gauth)
 file1 = drive.CreateFile()
 file1.SetContentString('helloooooo')
 file1.Upload()
+
+print "SUCCESS!"
